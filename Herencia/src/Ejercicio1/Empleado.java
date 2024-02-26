@@ -28,6 +28,7 @@ public class Empleado {
         this.edad = edad;
         this.casado = casado;
         this.salaario = salaario;
+        
     }
 
     public void setEdad(int edad) throws EEdadNoValida {
@@ -133,7 +134,7 @@ class Programador extends Empleado {
 class Administrativo extends Empleado {
      
          
-    nivelingles ni;
+    nivelingles  ni;
     
    private enum nivelingles
 {
