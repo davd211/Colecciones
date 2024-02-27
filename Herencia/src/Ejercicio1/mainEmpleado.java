@@ -7,7 +7,7 @@ public class mainEmpleado {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws EEdadNoValida {
         Scanner teclado = new Scanner(System.in);
 
         System.out.println("Qué tipo de empleado desea crear Administrativo(a) o Programador (p) ");
@@ -22,12 +22,8 @@ public class mainEmpleado {
             System.out.println("¿Está casad@? s/n");
             System.out.println("Introduzca nivel de inglés. Alto: a. Medio: m. Bajo: b");
             System.out.println("Introduzca su edad");
-            try {
-                a1.setEdad(teclado.nextInt());
-            } catch (EEdadNoValida e) {
-                System.out.println(e.getMessage()); // Imprime: "No se puede dar de alta. Edad inferior a 18 años"
-            }
-
+           a1.setEdad(teclado.nextInt());
+            teclado.nextLine();
         } else if (tipoEmpleado == 'p') {
 
             Programador p1 = new Programador();
@@ -36,12 +32,9 @@ public class mainEmpleado {
             System.out.println("¿Está casad@? s/n");
             System.out.println("Introduzca nivel de inglés. Alto: a. Medio: m. Bajo: b");
             System.out.println("Introduzca su edad");
-            try {
-                p1.setEdad(teclado.nextInt());
-            } catch (EEdadNoValida e) {
-                System.out.println(e.getMessage()); // Imprime: "No se puede dar de alta. Edad inferior a 18 años"
-            }
-
+             p1.setEdad(teclado.nextInt());
+            teclado.nextLine();
+            
         }
     }
 }
