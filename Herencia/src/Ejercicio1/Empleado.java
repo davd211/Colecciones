@@ -19,29 +19,26 @@ public class Empleado {
     }
 
     public Empleado(String nombre, int edad, boolean casado, double salaario) throws EEdadNoValida {
-        if (edad < 18){
-        throw new EEdadNoValida( "No se puede dar de alta. Edad inferior a 18 años");
+        if (edad < 18) {
+            throw new EEdadNoValida("No se puede dar de alta. Edad inferior a 18 años");
         }
-        
+
         this.nombre = nombre;
-        
+
         this.edad = edad;
         this.casado = casado;
         this.salaario = salaario;
-        
+
     }
 
     public void setEdad(int edad) throws EEdadNoValida {
-        
-         if (edad < 18){
-        throw new EEdadNoValida( "No se puede dar de alta. Edad inferior a 18 años");
+
+        if (edad < 18) {
+            throw new EEdadNoValida("No se puede dar de alta. Edad inferior a 18 años");
         }
-        
-        
+
         this.edad = edad;
     }
-    
-    
 
     public String clasificacionEdad(int edad) {
 
@@ -85,8 +82,6 @@ public class Empleado {
         this.salaario = salaario;
     }
 
-    
-    
 }
 
 class Programador extends Empleado {
@@ -97,19 +92,17 @@ class Programador extends Empleado {
     public Programador() {
     }
 
-   
 //constructor con parametros del padre e hijo
     public Programador(int lineasDeCodigoPorHora, String lenguajeDominante, String nombre, int edad, boolean casado, double salaario) throws EEdadNoValida {
         super(nombre, edad, casado, salaario);
         this.lineasDeCodigoPorHora = lineasDeCodigoPorHora;
         this.lenguajeDominante = lenguajeDominante;
     }
-    
-    
-    public double calcularSalario(int horasExtra){
-    
-    return (1000)+horasExtra*20;
-    
+
+    public double calcularSalario(int horasExtra) {
+
+        return (1000) + horasExtra * 20;
+
     }
 
     public int getLineasDeCodigoPorHora() {
@@ -127,33 +120,35 @@ class Programador extends Empleado {
     public void setLenguajeDominante(String lenguajeDominante) {
         this.lenguajeDominante = lenguajeDominante;
     }
-    
-    
 
 }
+
 class Administrativo extends Empleado {
-     
-         
-    nivelingles  ni;
+
+    private nivelingles ni;
+
+    public enum nivelingles{
+        alto,
+        medio,
+        bajo
+    }
+
     
-   private enum nivelingles
-{
-    alto, medio, bajo
-}
+
+    public Administrativo() {
+    }
 
     public Administrativo(nivelingles ni, String nombre, int edad, boolean casado, double salaario) throws EEdadNoValida {
         super(nombre, edad, casado, salaario);
         this.ni = ni;
     }
-
-    public Administrativo() {
-    }
-
-   
-      public double calcularSalario(int horasExtra){
     
-    return (1000)+horasExtra*20;
     
+
+    public double calcularSalario(int horasExtra) {
+
+        return (1000) + horasExtra * 20;
+
     }
 
     public nivelingles getNi() {
@@ -163,20 +158,12 @@ class Administrativo extends Empleado {
     public void setNi(nivelingles ni) {
         this.ni = ni;
     }
-    
-    
-    
-      
-      
+
 }
 
-
-
-
-class EEdadNoValida extends Exception{ //creamos esta clase fura
+class EEdadNoValida extends Exception { //creamos esta clase fura
 // de exception una vez cread hacemos los constructores por defecto
 // y el constructor de mensaje.    
-    
 
     public EEdadNoValida() {
     }

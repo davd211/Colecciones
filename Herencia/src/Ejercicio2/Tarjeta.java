@@ -18,8 +18,8 @@ public class Tarjeta {
     public Tarjeta(String pin, String puk) {
         this.pin = pin;
         this.puk = puk;
-        this.estado = Estado.APAGADA;
-        this.numIntentos = 0;
+        this.estado = Estado.apagada;
+        this.numIntentos = 1;
     }
 
     public String getPin() {
@@ -35,35 +35,29 @@ public class Tarjeta {
     }
 
     public boolean encender(String pin) {
-
-        if (estado != Estado.APAGADA) {
+        if ((this.pin.equals(pin) &&(this.estado==Estado.apagada))) {
+            
+            this.estado=Estado.activa;
+            this.numIntentos=0;
+            return true;
+        }else {
+        
+        //el pin no es valido
+        if(this.numIntentos ==3){
+       this.estado=Estado.bloqueada;
+       return false;
+        }else {
+            this.numIntentos++;
             return false;
         }
-        if (this.pin.equals(pin)) {
-            estado = Estado.ACTIVA;
-            numIntentos = 0;
-            return true;
-        } else {
-            if (numIntentos == 3) {
-
-                estado = Estado.BLOQUEADA;
-                return false;
-            } else {
-                if (numIntentos != 3) {
-                    numIntentos++;
-                    return false;
-                }
-
-            }
         }
-        return false;
     }
 
     public boolean desbloquear(String puk) {
 
         if (this.puk.equals(puk)) {
-            if (estado.equals(Estado.BLOQUEADA)) {
-                estado = Estado.ACTIVA;
+            if (estado.equals(Estado.bloqueada)) {
+                estado = Estado.activa;
                 return true;
 
             } else {
@@ -74,15 +68,15 @@ public class Tarjeta {
         return false;
     }
  public void apagar(){
-  if (estado.equals(Estado.BLOQUEADA)){
-  estado = Estado.APAGADA;
+  if (estado.equals(Estado.activa)){
+  estado = Estado.apagada;
   
   }
  
  
  }
     public enum Estado {
-        APAGADA, ACTIVA, BLOQUEADA
+        apagada, activa, bloqueada
     }
 
 }
