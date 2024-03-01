@@ -13,6 +13,8 @@ public class Persona {
     protected String apellido1;
     protected String apellido2;
     protected String dni;
+    protected Persona madre;
+    protected Persona padre;
 
     public Persona(String nombre, String apellido1, String apellido2, String dni) {
         this.nombre = nombre;
@@ -21,6 +23,18 @@ public class Persona {
         this.dni = dni;
     }
 
+    public Persona(String nombre, String apellido1, String apellido2, String dni, Persona madre, Persona padre) {
+        this.nombre = nombre;
+        this.apellido1 = apellido1;
+        this.apellido2 = apellido2;
+        this.dni = dni;
+        this.madre = madre;
+        this.padre = padre;
+    }
+
+    
+    
+    
     public String getNombre() {
         return nombre;
     }
@@ -53,29 +67,32 @@ public class Persona {
         this.dni = dni;
     }
 
+    public Persona getMadre() {
+        return madre;
+    }
+
+    public void setMadre(Persona madre) {
+        this.madre = madre;
+    }
+
+    public Persona getPadre() {
+        return padre;
+    }
+
+    public void setPadre(Persona padre) {
+        this.padre = padre;
+    }
+
     @Override
     public String toString() {
-        return "Persona{" + "nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", dni=" + dni + '}';
+        return "Persona{" + "nombre=" + nombre + ", apellido1=" + apellido1 + ", apellido2=" + apellido2 + ", dni=" + dni + ", madre=" + madre + ", padre=" + padre + '}';
     }
+    
+    
+
+   
            
     
     
 }
 
-class madre extends Persona{
-
-    public madre(String nombre, String apellido1, String apellido2, String dni) {
-        super(nombre, apellido1, apellido2, dni);
-    }
-
-
-}
-
-class padre extends Persona{
-
-    public padre(String nombre, String apellido1, String apellido2, String dni) {
-        super(nombre, apellido1, apellido2, dni);
-    }
-
-
-}
