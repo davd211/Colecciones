@@ -15,14 +15,23 @@ public class mainPersona {
      */
     public static void main(String[] args) throws edadexception {
 
-          try {
-            Persona p1 = new Persona(-2); // Lanza una EdadNegativaException
-            int edad = Integer.parseInt(p1.lee());
-            int resultado = p1.divide(3, 0); // Lanza una ArithmeticException
-            System.out.println("Edad: " + edad);
-            System.out.println("Resultado: " + resultado);
-        }  catch (ArithmeticException e) {
-            System.err.println("No se puede dividir por 0");
+        try {
+            
+            Persona p1 = new Persona(3);
+            int a = Integer.parseInt(p1.lee());
+            p1.divide(3, 0);
+           
+        } catch (edadexception e) {
+            System.out.println(e.getMessage());
+        } catch (NumberFormatException n) {
+            System.out.println(n.getMessage());
+        }catch (ArithmeticException a){
+            System.out.println(a.getMessage());
         }
+        try {
+                    Persona p = new Persona(-2);
+       } catch (edadexception e) {
+            System.out.println("Error "+e.getMessage());}
+
     }
 }

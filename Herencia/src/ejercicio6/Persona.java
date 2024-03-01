@@ -16,7 +16,7 @@ public class Persona {
 
     public Persona(int edad) throws edadexception {
         if (edad < 0) {
-            throw new edadexception("No se puede dar de alta. Edad inferior a 18 años");
+            throw new edadexception("Edad no permitida");
         }
 
         this.edad = edad;
@@ -28,7 +28,7 @@ public class Persona {
 
     public void setEdad(int edad) throws edadexception {
         if (edad < 0) {
-            throw new edadexception("No se puede dar de alta. Edad inferior a 18 años");
+            throw new edadexception("Edad no permitida");
         }
 
         this.edad = edad;
@@ -40,10 +40,15 @@ public class Persona {
         return teclado.nextLine();
     }
 
-    public int divide(int a, int b) {
-
+    public int divide(int a, int b) throws edadexception {
+   if (b < 0) {
+            throw new edadexception("Edad no permitida");
+        }
         return a / b;
 
+    }
+
+    public Persona() {
     }
 
 }
