@@ -13,29 +13,17 @@ public abstract class vehiculo {
     protected String matricula;
     protected int km;
     protected int añomatriculacion;
-    protected int numeroPuertas;
 
-    public  abstract  void calculaVidaUtil();
+    public abstract void calculaVidaUtil();
 
     public vehiculo() {
     }
 
-    public vehiculo(String matricula, int km, int añomatriculacion, int numeroPuertas) {
+    public vehiculo(String matricula, int km, int añomatriculacion) {
         this.matricula = matricula;
         this.km = km;
         this.añomatriculacion = añomatriculacion;
-        this.numeroPuertas = numeroPuertas;
     }
-
-    public int getNumeroPuertas() {
-        return numeroPuertas;
-    }
-
-    public void setNumeroPuertas(int numeroPuertas) {
-        this.numeroPuertas = numeroPuertas;
-    }
-
-   
 
     public String getMatricula() {
         return matricula;
@@ -65,28 +53,27 @@ public abstract class vehiculo {
 
 class Coche extends vehiculo {
 
-    private int numPuertas;
+    private int numeroPuertas;
 
     public Coche() {
     }
 
-    public Coche(int numPuertas, String matricula, int km, int añomatriculacion, int numeroPuertas) {
-        super(matricula, km, añomatriculacion, numeroPuertas);
-        this.numPuertas = numPuertas;
+    public Coche(String matricula, int km, int añomatriculacion, int numeroPuertas) {
+        super(matricula, km, añomatriculacion);
+        this.numeroPuertas = numeroPuertas;
+
     }
 
-   
-
-    public int getNumPuertas() {
-        return numPuertas;
+    public int getNumeroPuertas() {
+        return numeroPuertas;
     }
 
-    public void setNumPuertas(int numPuertas) {
-        this.numPuertas = numPuertas;
+    public void setNumeroPuertas(int numeroPuertas) {
+        this.numeroPuertas = numeroPuertas;
     }
 
-     public String tipoVehiculo(int numPuertas) {
-        switch (numPuertas) {
+    public String tipoVehiculo() {
+        switch (this.numeroPuertas) {
             case 5:
                 return "Multiuso";
             case 7:
@@ -98,18 +85,10 @@ class Coche extends vehiculo {
         }
     }
 
-    
-    
-    
-    
-    
-    
     @Override
     public void calculaVidaUtil() {
         System.out.println("Vida útil coche 10 años");
     }
-
-  
 
 }
 
@@ -122,12 +101,11 @@ class Camion extends vehiculo {
     }
 
     public Camion(int tonelaje, int altura, String matricula, int km, int añomatriculacion, int numeroPuertas) {
-        super(matricula, km, añomatriculacion, numeroPuertas);
+        super(matricula, km, añomatriculacion);
         this.tonelaje = tonelaje;
         this.altura = altura;
     }
 
-   
     public int getTonelaje() {
         return tonelaje;
     }
@@ -149,5 +127,4 @@ class Camion extends vehiculo {
         System.out.println("Vida útil camión 5 años");
     }
 
-   
 }

@@ -19,27 +19,35 @@ public class mainVehiculo {
 
         Scanner teclado = new Scanner(System.in);
 
+        vehiculo c1=null;
 //identificar al coche o camion
         System.out.println("Qué deseas crear coche(co) o camión (ca)");
         String id = teclado.nextLine();
         switch (id) {
             case "ca":
-                Camion c1 = new Camion();
+                if (c1 instanceof Camion) {
+                    
+                
+                 c1 = new Camion();
                 c1.setMatricula(teclado.nextLine());
                 c1.setKm(teclado.nextInt());
                 c1.setAñomatriculacion(teclado.nextInt());
-                c1.setNumeroPuertas(teclado.nextInt());
-                c1.calculaVidaUtil();
-
+                teclado.nextInt();//tengo que poner el tonelaje y la altura 
+               ((Camion) c1).calculaVidaUtil();
+                }
                 break;
             case "co":
-                Coche c2 = new Coche();
+                if (c1 instanceof Coche)  {
+                    
+                }
+                 c1 = new Coche();
 
-                c2.setMatricula(teclado.nextLine());
-                c2.setKm(teclado.nextInt());
-                c2.setAñomatriculacion(teclado.nextInt());
-                c2.calculaVidaUtil();
-                String tipo = c2.tipoVehiculo(teclado.nextInt());
+                c1.setMatricula(teclado.nextLine());
+                c1.setKm(teclado.nextInt());
+                c1.setAñomatriculacion(teclado.nextInt());
+                ((Coche) c1).setNumeroPuertas(teclado.nextInt());
+                c1.calculaVidaUtil();
+                String tipo = ((Coche) c1).tipoVehiculo();
                 System.out.println("Tipo coche  " + tipo);
                 break;
 

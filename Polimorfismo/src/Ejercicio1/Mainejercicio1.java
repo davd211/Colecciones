@@ -21,10 +21,10 @@ public class Mainejercicio1 {
         System.out.println("Qué tipo de empleado desea crear Administrativo(a) o Programador (p) ");
 
         char tipoEmpleado = teclado.nextLine().charAt(0);
-
+        Empleado a1= null;
         if (tipoEmpleado == 'a') {
 
-            Administrativo a1 = new Administrativo();
+             a1 = new Administrativo();
             System.out.println("Introduce nombre administrativo");
             a1.setNombre(teclado.nextLine());
             System.out.println("¿Está casad@? s/n");
@@ -35,22 +35,24 @@ public class Mainejercicio1 {
             } else {
                 a1.setCasado(false);
             }
+            
+            if (a1 instanceof Administrativo){
             System.out.println("Introduzca nivel de inglés. Alto: a. Medio: m. Bajo: b");
 
             char nivel = teclado.nextLine().charAt(0);
             switch (nivel) {
                 case 'a':
-                    a1.setNi(Administrativo.nivelingles.alto);
+                  ((Administrativo) a1).setNi(Administrativo.nivelingles.alto);
                     break;
                 case 'm':
-                    a1.setNi(Administrativo.nivelingles.medio);
+                     ((Administrativo) a1).setNi(Administrativo.nivelingles.medio);
                     break;
                 case 'b':
-                    a1.setNi(Administrativo.nivelingles.bajo);
+                     ((Administrativo) a1).setNi(Administrativo.nivelingles.bajo);
                     break;
 
             }
-
+            }
             System.out.println("Introduzca su edad");
             try {
                 a1.setEdad(teclado.nextInt());
