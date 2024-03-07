@@ -19,18 +19,32 @@ public class mainMultimedia {
 
         Scanner teclado = new Scanner(System.in);
 
-        Multimedia m1 = null;
         System.out.println("Indica que dispositivo deseas crear película (p) o disco (d) :");
         char tipo = teclado.nextLine().charAt(0);
         String titulo = teclado.nextLine();
         String autor = teclado.nextLine();
-        
+        String formato = teclado.nextLine();
+        Formato taudio;
+
+        if (formato.equals("wav")) {
+            taudio = Formato.wav;
+
+        } else if (formato.equals("mp3")) {
+            taudio = Formato.mp3;
+
+        } else if (formato.equals("mp4")) {
+
+            taudio = Formato.mp4;
+
+        }
+        int duracion = teclado.nextInt();
+
         switch (tipo) {
             case 'p':
-//m1 = new Pelicula(titulo, autor, formato, tipo, autor, autor)
+
                 break;
-              case 'd':
-                
+            case 'd':
+
                 break;
         }
 

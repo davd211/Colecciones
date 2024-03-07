@@ -3,29 +3,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Multimedia;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 
 import java.util.Objects;
 
 /**
  *
- * @author David.P
+ * @author Usuario
  */
-public class Multimedia  {
-
-    protected String titulo;
-    protected String autor;
-    protected Formato formato;
-    protected int duracion;
-
-    public Multimedia(String titulo, String autor, Formato formato, int duracion) throws duracionexception  {
-        this.titulo = titulo;
-        this.autor = autor;
-        this.formato = formato;
-        if (duracion < 0) {
-            throw new duracionexception("Duracion no valida");
-        }
-        this.duracion = duracion;
-    }
+public class Multimedia {
+    
+    private String titulo;
+    private String autor;
+   
+    private int duracion;
+    
+    //para crear una excecion es como una clase independiente
 
     public String getTitulo() {
         return titulo;
@@ -35,20 +31,27 @@ public class Multimedia  {
         return autor;
     }
 
-    public Formato getFormato() {
-        return formato;
-    }
-
     public int getDuracion() {
         return duracion;
     }
 
-    @Override
-    public String toString() {
-        return "Multimedia{" + "titulo=" + titulo + ", autor=" + autor + ", formato=" + formato + ", duracion=" + duracion + '}';
+    public Multimedia() {
     }
 
- 
+    public Multimedia(String titulo, String autor, int duracion) throws excepcion {
+        this.titulo = titulo;
+        this.autor = autor;
+        if (duracion<0){
+            throw new excepcion();
+        }
+        this.duracion = duracion;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        return hash;
+    }
 
     @Override
     public boolean equals(Object obj) {
@@ -68,93 +71,14 @@ public class Multimedia  {
         return Objects.equals(this.autor, other.autor);
     }
 
-  
-    
-    
-    
-    
-    
-    
-
-     protected enum Formato {
-
-        wav, mp3, mp4
-    }
-}
-
-class Pelicula extends Multimedia{
-
    
-private String actorPrincipal;
-private String actrizPrincipal;
-
-    public Pelicula(String actorPrincipal, String actrizPrincipal, String titulo, String autor, Formato formato, int duracion) throws duracionexception {
-        super(titulo, autor, formato, duracion);
-        this.actorPrincipal = actorPrincipal;
-        this.actrizPrincipal = actrizPrincipal;
-    }
-
-   
-
-   
-
-    public String getActorPrincipal() {
-        return actorPrincipal;
-    }
-
-    public String getActrizPrincipal() {
-        return actrizPrincipal;
-    }
 
     @Override
     public String toString() {
-        return "Pelicula{" + "actorPrincipal=" + actorPrincipal + ", actrizPrincipal=" + actrizPrincipal + '}';
+        return "Multimedia{" + "titulo=" + titulo + ", autor=" + autor + ", duracion=" + duracion + '}';
     }
-
     
-  
-   
-
-
-
 }
-
-class Disco extends Multimedia{
-
-private Genero genero;
-
-    public Disco(Genero genero, String titulo, String autor, Formato formato, int duracion) throws duracionexception {
-        super(titulo, autor, formato, duracion);
-        this.genero = genero;
+ enum Formato {
+        wav, mp3, mp4;
     }
-
-    @Override
-    public String toString() {
-        return "Disco{" + "genero=" + genero + '}';
-    }
-
-    
-    
-    public enum Genero {
-    
-    rock, pop, soul, blues, clásica
-    }
-
-}
-
-
-
- class duracionexception extends Exception{
-
-    public duracionexception() {
-    }
-
-    public duracionexception(String message) {
-        super(message);
-    }
-
-  
-
- 
-
-}
