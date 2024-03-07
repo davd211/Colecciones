@@ -5,8 +5,6 @@
 package Ejercicio4;
 
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -19,32 +17,37 @@ public class maincoche {
      */
     public static void main(String[] args) {
 
-        try {
-            Scanner teclado = new Scanner(System.in);
+        Scanner teclado = new Scanner(System.in);
 
-            coche c1 = null;
-            String matricula = teclado.nextLine();
-            System.out.println("Cambio automático (a) o cambio manual (m)");
-            char tipo = teclado.nextLine().charAt(0);
+        coche c1 = null;
+        String matricula = teclado.nextLine();
+        System.out.println("Cambio automático (a) o cambio manual (m)");
+        char tipo = teclado.nextLine().charAt(0);
 
-            switch (tipo) {
-                case 'a':
-                    c1 = new CocheCambioAutomatico(matricula);
-                    
-                    
-                    break;
-                case 'm':
-                    c1 = new CocheCambioManual(matricula);
-                    
-                    
-                    break;
-            }
-        } catch (velocidadexception ex) {
-            Logger.getLogger(maincoche.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (marchaexception ex) {
-            Logger.getLogger(maincoche.class.getName()).log(Level.SEVERE, null, ex);
+        switch (tipo) {
+            case 'a':
+                c1 = new CocheCambioAutomatico(matricula);
+                if (c1 instanceof CocheCambioAutomatico) {
+
+                    ((CocheCambioAutomatico) c1).acelerar(60);
+                }
+                System.out.println("Matrícula " + c1.getMatricula());
+                System.out.println("Velocidad " + c1.getVelocidad());
+                System.out.println("Marcha " + c1.getMarcha());
+
+                break;
+            case 'm':
+                c1 = new CocheCambioManual(matricula);
+                if (c1 instanceof CocheCambioManual) {
+                    ((CocheCambioManual) c1).acelerar(60);
+                    ((CocheCambioManual) c1).cambiarmarcha(3);
+
+                }
+                System.out.println("Matrícula " + c1.getMatricula());
+                System.out.println("Velocidad " + c1.getVelocidad());
+                System.out.println("Marcha " + c1.getMarcha());
+
+                break;
         }
-
     }
-
 }

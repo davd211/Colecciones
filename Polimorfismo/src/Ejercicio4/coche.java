@@ -17,19 +17,17 @@ public class coche {
     public coche() {
     }
 
-    public coche(String matricula) throws velocidadexception, marchaexception {
+    public coche(String matricula) {
         this.matricula = matricula;
         if (this.velocidad < 0) {
-            throw new velocidadexception("velocidad no permitida");
+            this.velocidad = 0;
 
         }
-        this.velocidad = 0;
 
         if (this.marcha < 0) {
-            throw new marchaexception("marcha no permitida");
+            this.marcha = 0;
 
         }
-        this.marcha = 0;
     }
 
     public String getMatricula() {
@@ -56,7 +54,7 @@ public class coche {
     }
 
     protected void cambiarmarcha(int marcha) {
-        if (this.marcha > 0) {
+        if (marcha > 0) {
             this.marcha = marcha;
         }
 
@@ -71,21 +69,21 @@ public class coche {
 
 class CocheCambioManual extends coche {
 
-    public CocheCambioManual(String matricula) throws velocidadexception, marchaexception {
+    public CocheCambioManual(String matricula) {
         super(matricula);
 
     }
 
     @Override //he cambiado de protected a public
     public void cambiarmarcha(int marcha) {
-        super.cambiarmarcha(marcha); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+       this.marcha=marcha;
     }
 
 }
 
 class CocheCambioAutomatico extends coche {
 
-    public CocheCambioAutomatico(String matricula) throws velocidadexception, marchaexception {
+    public CocheCambioAutomatico(String matricula) {
         super(matricula);
     }
 
@@ -102,30 +100,8 @@ class CocheCambioAutomatico extends coche {
         } else if (this.velocidad < 30) {
             cambiarmarcha(2);
         } else if (this.velocidad <= 60) {
-           cambiarmarcha(3);
+            cambiarmarcha(3);
         }
-    }
-
-}
-
-class velocidadexception extends Exception {
-
-    public velocidadexception() {
-    }
-
-    public velocidadexception(String message) {
-        super(message);
-    }
-
-}
-
-class marchaexception extends Exception {
-
-    public marchaexception() {
-    }
-
-    public marchaexception(String message) {
-        super(message);
     }
 
 }
