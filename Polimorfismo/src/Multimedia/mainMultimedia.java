@@ -27,7 +27,7 @@ public class mainMultimedia {
         
         switch (tipo) {
             case 'p':
-m1 = new Pelicula(titulo, autor, formato, tipo, autor, autor)
+//m1 = new Pelicula(titulo, autor, formato, tipo, autor, autor)
                 break;
               case 'd':
                 
