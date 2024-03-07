@@ -17,32 +17,54 @@ public class MainPersona {
      */
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
-
+        Persona p1 = null;
         char a = teclado.nextLine().charAt(0);
         switch (a) {
             case 'f':
-                Profesor p1 = new Profesor();
+                p1 = new Profesor();
                 p1.setDni(teclado.nextLine());
                 p1.setNombre(teclado.nextLine());
                 p1.setEdad(teclado.nextInt());
                 p1.setDireccion(teclado.nextLine());
-                p1.setTitulacion(teclado.nextLine());
-               // p1.set
-                
-                System.out.println("hola");
+                teclado.nextLine();
+
+                if (p1 instanceof Profesor) {
+
+                    ((Profesor) p1).setTitulacion(teclado.nextLine());
+                    ((Profesor) p1).setExperiencia(teclado.nextInt());
+                    System.out.print("Sueldo profesor " + ((Profesor) p1).calcularSueldo());
+
+                }
+
                 break;
             case 'i':
-                ProfesorInterino p2 = new ProfesorInterino();
-                p2.getDni();
+                p1 = new ProfesorInterino();
+                p1.setDni(teclado.nextLine());
+                p1.setNombre(teclado.nextLine());
+                p1.setEdad(teclado.nextInt());
+                p1.setDireccion(teclado.nextLine());
+                teclado.nextLine();
 
-                System.out.println("hola2");
+                if (p1 instanceof ProfesorInterino) {
+
+                    System.out.print("Sueldo profesor " + ((ProfesorInterino) p1).calcularSueldo());
+
+                }
 
                 break;
             case 'a':
-                Alumnos a1 = new Alumnos();
-                a1.getDni();
+                p1 = new Alumnos();
+                p1.setDni(teclado.nextLine());
+                p1.setNombre(teclado.nextLine());
+                p1.setEdad(teclado.nextInt());
+                p1.setDireccion(teclado.nextLine());
+                teclado.nextLine();
 
-                System.out.println("hola3");
+                if (p1 instanceof Alumnos) {
+
+                    System.out.print("Precio matrícula " + ((Alumnos) p1).calcularMatricula());
+
+                }
 
                 break;
         }

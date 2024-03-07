@@ -14,7 +14,7 @@ public abstract class vehiculo {
     protected int km;
     protected int añomatriculacion;
 
-    public abstract void calculaVidaUtil();
+   abstract public String vidaUtil();
 
     public vehiculo() {
     }
@@ -85,9 +85,11 @@ class Coche extends vehiculo {
         }
     }
 
+ 
     @Override
-    public void calculaVidaUtil() {
-        System.out.println("Vida útil coche 10 años");
+    public String vidaUtil() {
+                return "Vida útil coche 10 años";
+
     }
 
 }
@@ -122,9 +124,11 @@ class Camion extends vehiculo {
         this.altura = altura;
     }
 
+    
+
     @Override
-    public void calculaVidaUtil() {
-        System.out.println("Vida útil camión 5 años");
+    public String vidaUtil() {
+        return "Vida útil coche 5 años";
     }
 
 }

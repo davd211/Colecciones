@@ -46,18 +46,17 @@ public class Persona {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-    
+
 }
 
 class Profesor extends Persona {
 
     private String titulacion;
-    private int experiencia;
+    private double experiencia;
 
-    public int calcularSueldo(int sueldo) {
-
-        return 0;
-
+//   
+    public double calcularSueldo() {
+        return (1000 + (experiencia * 100));
     }
 
     public String getTitulacion() {
@@ -68,43 +67,40 @@ class Profesor extends Persona {
         this.titulacion = titulacion;
     }
 
-    public int getExperiencia() {
+    public double getExperiencia() {
         return experiencia;
     }
 
-    public void setExperiencia(int experiencia) {
+    public void setExperiencia(double experiencia) {
         this.experiencia = experiencia;
     }
-    
+
 }
 
 class ProfesorInterino extends Persona {
 
-    public int calcularSueldo(int sueldo) {
+    public double calcularSueldo() {
 
-        sueldo = 1000;
+        int sueldo = 1000;
         int plusinternidad = 200;
         int resultado = sueldo + plusinternidad;
-
         return resultado;
     }
-    
 
 }
-class Alumnos extends Persona{
 
+class Alumnos extends Persona {
 
-private String cicloMatriculado;
-private String curso ;
+    private String cicloMatriculado;
+    private String curso;
 
+    public double calcularMatricula() {
 
-public double calcularMatricula(){
+        int numeroDeModulos = 7;
+        int resultado = numeroDeModulos * 50;
+        return resultado;
 
-int numeroDeModulos = 7;
-int resultado =numeroDeModulos * 50;
-return resultado;
-
-}
+    }
 
     public String getCicloMatriculado() {
         return cicloMatriculado;
